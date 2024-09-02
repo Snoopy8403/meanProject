@@ -16,11 +16,4 @@ import { PostListComponent } from './posts/post-list/post-list.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  storedPosts = [];
-  onPostAdded(post) {
-    this.storedPosts.push(post);
-  }
-
-  title = 'meanProject';
-}
+export class AppComponent {}
