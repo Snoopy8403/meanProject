@@ -12,10 +12,8 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './post-create.component.scss',
 })
 export class PostCreateComponent {
-  newPost = 'No content';
-  enteredValue = '';
+  enteredTitle = '';
+  enteredContent = '';
 
-  onAddPost() {
-    this.newPost = this.enteredValue;
-  }
+  onAddPost() {}
 }
