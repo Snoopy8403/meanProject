@@ -17,5 +17,10 @@ import { PostListComponent } from './posts/post-list/post-list.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  storedPosts = [];
+  onPostAdded(post) {
+    this.storedPosts.push(post);
+  }
+
   title = 'meanProject';
 }
