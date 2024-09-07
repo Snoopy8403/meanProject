@@ -4,24 +4,24 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { Post } from '../../models/post.model';
 import { PostsService } from '../posts.service';
 import { Subscription } from 'rxjs';
+import { MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-post-list',
   standalone: true,
-  imports: [MatExpansionModule, CommonModule],
+  imports: [MatExpansionModule, CommonModule, MatIconButton, MatIcon],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss',
 })
 export class PostListComponent implements OnInit, OnDestroy {
   posts: Post[] = [];
+  private postsSubs: Subscription = new Subscription();
 
-  constructor(
-    private readonly postService: PostsService,
-    private postsSubs: Subscription
-  ) {}
+  constructor(private readonly postService: PostsService) {}
 
   ngOnInit() {
-    this.posts = this.postService.getPosts();
+    this.postService.getPosts();
     this.postsSubs = this.postService
       .getPostUpdateListener()
       .subscribe((posts: Post[]) => {
@@ -31,5 +31,11 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.postsSubs.unsubscribe();
+  }
+
+  editPost() {}
+
+  deletePost(postId: string) {
+    this.postService.deletePost(postId);
   }
 }

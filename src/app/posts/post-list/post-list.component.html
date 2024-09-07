@@ -4,9 +4,17 @@
       <mat-panel-title> {{ post.title }} </mat-panel-title>
     </mat-expansion-panel-header>
     {{ post.content }}
+    <mat-action-row>
+      <button mat-icon-button color="primary" (click)="editPost()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deletePost(post.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
 
-<p class="info-text mat-body-1" *ngIf="posts.length <= 0">
-  No posts added yet!
-</p>
+@if (posts.length <= 0) {
+<p class="info-text mat-body-1">No posts added yet!</p>
+}
