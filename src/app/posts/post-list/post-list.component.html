@@ -5,10 +5,16 @@
     </mat-expansion-panel-header>
     {{ post.content }}
     <mat-action-row>
-      <button mat-icon-button color="primary" (click)="editPost()">
+      <button
+        mat-icon-button
+        color="primary"
+        [routerLink]="['/edit', post.id]"
+        routerLinkActive="router-link-active"
+        (click)="editPost()"
+      >
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button color="warn" (click)="deletePost(post.id)">
+      <button mat-icon-button color="warn" (click)="deletePost(post.id!)">
         <mat-icon>delete</mat-icon>
       </button>
     </mat-action-row>

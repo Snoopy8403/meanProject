@@ -6,11 +6,18 @@ import { PostsService } from '../posts.service';
 import { Subscription } from 'rxjs';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
   standalone: true,
-  imports: [MatExpansionModule, CommonModule, MatIconButton, MatIcon],
+  imports: [
+    MatExpansionModule,
+    CommonModule,
+    MatIconButton,
+    MatIcon,
+    RouterLink,
+  ],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss',
 })
